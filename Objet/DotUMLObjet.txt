@@ -1,0 +1,51 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+  abstract class User {
+    private userId : "U123"
+    private email : "user@example.com"
+    private loginStatus : "Logged In"
+  }
+
+  class Parieur {
+    private jeton : 100
+  }
+
+  class Bookmaker {
+  }
+
+  class Sport {
+    private sportLabel : "Football"
+  }
+
+  class paris {
+    private coteParam : 1.5
+    private montantLimite : 1000
+    private créditLimite : 500
+  }
+
+  class ParisSimple {
+    numGagnant : 7
+  }
+
+  class ParisComplexe {
+    score : 3
+    temp : "00:45:00"
+  }
+
+  class Evenement {
+    Heure : "18:00:00"
+    Date : "2024-03-14"
+  }
+  
+  class SourceDonnees{
+   public miseAjourEvenement()
+    }
+
+  Parieur -g-> User
+  Bookmaker -g-> User
+  ParisComplexe -g-> paris
+  ParisSimple -g-> paris
+  paris   --  Evenement : ""
+  Evenement  --  Sport : ""
+  paris   --  Parieur : ""
+  SourceDonnees  --  Evenement: ""
+}

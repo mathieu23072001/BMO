@@ -1,0 +1,10 @@
+StateDiagram [frame=true framecolor=steelblue label="Diagramme d'État de la classe Parieur" splines=ortho] {
+  state EnAttente as "En attente" [fillcolor=palegreen]
+  state Actif as "Actif" [fillcolor=lightskyblue]
+  state Suspendu as "Suspendu" [fillcolor=lightcoral]
+
+  initialState -> EnAttente
+  EnAttente -> Actif  "Inscription confirmée"
+  Actif -> Suspendu  "Suspension du compte"
+  Suspendu -> Actif  "Réactivation du compte"
+}

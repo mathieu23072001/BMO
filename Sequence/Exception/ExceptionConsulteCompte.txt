@@ -1,0 +1,12 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Exeception consulte compte"] {
+  actor  P
+  lifeline ":SystemeParisEnLigne" as S
+  lifeline ":BaseDeDonnees" as BD
+  
+  P --> S "Se connecter à son compte"
+  
+  S --> BD "Vérifier les informations de connexion"
+  BD -r-> S "Erreur: informations de connexion incorrectes"
+
+  S -r-> P "Erreur: informations de connexion incorrectes, veuillez réessayer"
+}

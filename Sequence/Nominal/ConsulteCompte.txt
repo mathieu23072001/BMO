@@ -1,0 +1,14 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Consulter compte"] {
+  actor  P
+  lifeline ":SystemeParisEnLigne" as S
+  lifeline ":BaseDeDonnees" as BD
+  
+  P --> S "Se connecter à son compte"
+  
+  P --> S "Sélectionner l'option 'Consulter compte'"
+  
+  S --> BD "Interroger la base de données"
+  BD -r-> S "Informations du compte"
+  
+  S -r-> P "Afficher les informations du compte"
+}

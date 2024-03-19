@@ -1,0 +1,28 @@
+
+SequenceDiagram [frame=true framecolor=steelblue label="Placé paris avancé"] {
+  actor  P
+  lifeline ":SystemeParisEnLigne" as S
+  lifeline ":BaseDeDonnees" as BD
+  
+  P --> S "Choisir événement sportif"
+  
+  S --> BD "Vérifier événement"
+  BD -r-> S "Confirmer disponibilité"
+
+  P --> S "Sélectionner type de pari 'avancé'"
+  S --> BD "Vérifier type de pari"
+  BD -r-> S "Confirmer type de pari"
+
+  P --> S "Entrer résultat parié"
+  P --> S "Définir montant pari en jetons"
+  P --> S "Soumettre ticket de pari"
+  
+  S --> BD "Débiter compte du montant pari"
+  BD -r-> S "Confirmer débit"
+
+  S --> BD "Calculer cote"
+  BD -r-> S "Cote calculée"
+  
+  S -r-> P "Afficher confirmation pari"
+}
+

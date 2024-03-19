@@ -1,0 +1,26 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Inscription"] {
+  actor  P
+  lifeline ":InterfaceInscription" as II
+  lifeline ":SystemeInscription" as SI
+  lifeline ":BaseDeDonnees" as BD
+  
+  P --> II "Accéder à la plateforme de paris en ligne"
+  
+  P --> II "Sélectionner l'option 'Inscription'"
+  
+  P --> II "Remplir le formulaire d'inscription"
+  
+  II --> SI "Transmettre informations d'inscription"
+  
+  SI --> BD "Vérifier disponibilité du nom d'utilisateur"
+  BD -r-> SI "Confirmer disponibilité du nom d'utilisateur"
+  
+  SI --> BD "Créer nouveau compte"
+  BD -r-> SI "Confirmer création du compte"
+  
+  SI --> BD "Créditer le compte avec 10,000 jetons"
+  BD -r-> SI "Confirmer le crédit initial"
+  
+  SI -r-> II "Afficher confirmation d'inscription"
+  II -r-> P "Confirmation d'inscription"
+}

@@ -1,0 +1,62 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+ abstract class User {
+  private userId : string
+  private email : string
+  private loginStatus : Status
+  public login(email: string, password:string)
+ }
+ 
+ 
+
+class Parieur {
+  private jeton : int
+  public parisSimple(montant : int)
+  public parisComplexe(montant : int)
+  public ajouterJeton(montant : int)
+  public retirerArgent(montant : int)
+  
+  }
+  class Bookmaker{
+		public ajouterEvenement (evenement : systemeEvenement)
+    public paramètreParis(coteParam : int)
+  }
+  class Sport{
+    private sportLabel : string
+    }
+  
+  class Regle{
+    private regleLabel : string
+    }
+  
+  class paris{
+    private coteParam : float
+    private montantLimite : int
+    private créditLimite : int
+    public parier()
+    }
+  class ParisSimple{
+    numGagnant : int
+    }
+  class ParisComplexe{
+    score : int
+    temp : time
+    }
+  class Evenement{
+    private eventLabel: string
+    private Heure : time
+    private Date : date
+    }
+  
+  class SourceDonnees{
+   public miseAjourEvenement()
+    }
+  Parieur -g-> User
+  Bookmaker -g-> User
+  ParisComplexe -g-> paris
+  ParisSimple -g-> paris
+  paris  "0..*" -- "1"  Evenement : "misé"
+  Evenement "0..*" -- "1..*" Sport : "concerne"
+  paris  "0..*" -- "1" Parieur : "fait"
+  SourceDonnees "1..*" -- "1..*" Evenement: "lié"
+  Sport "1..*" -- "1..*" Regle: "possede"
+}

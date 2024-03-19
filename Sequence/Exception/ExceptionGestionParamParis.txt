@@ -1,0 +1,29 @@
+SequenceDiagram [frame=true framecolor=steelblue label="gestion parametre paris - Exception"] {
+  actor bookmaker
+  participant ":InterfaceUtilisateur" as Interface
+  participant ":SystèmeParis" as Systeme
+  participant ":BaseDeDonnées" as BaseDeDonnees
+  
+  bookmaker --> Interface "Accéder à la plateforme de paris en ligne"
+  
+  bookmaker --> Interface "Sélectionner l'option 'Paramètres de paris"
+  
+  Interface --> Systeme "Demande de gestion des paramètres de paris"
+  
+  Systeme --> BaseDeDonnees "Récupérer les paramètres actuels"
+  
+  BaseDeDonnees --> Systeme "Paramètres actuels des paris"
+  
+  Systeme --> Interface "Afficher les paramètres actuels"
+  
+  bookmaker --> Interface "Modifier les paramètres selon ses préférences"
+  
+  Interface --> Systeme "Envoyer les nouveaux paramètres"
+  
+  fragment alt "[Erreur lors de la mise à jour des paramètres]" {
+    Systeme --> BaseDeDonnees "Mettre à jour les paramètres"
+    BaseDeDonnees --> Systeme "Erreur lors de la mise à jour"
+    Systeme --> Interface "Afficher message d'erreur"
+    Interface --> bookmaker "Afficher message d'erreur"
+  }
+}

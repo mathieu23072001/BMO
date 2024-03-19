@@ -1,0 +1,26 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Placé paris simple"] {
+  actor user 
+  lifeline ":SystemeParisEnLigne" as S
+  lifeline ":BaseDeDonnees" as BD
+  
+  user --> S "Choisir événement sportif"
+ 
+  S --> BD "Vérifier événement"
+  BD -r-> S "Confirmer disponibilité"
+
+  user --> S "Sélectionner type de pari 'simple'"
+  S --> BD "Vérifier type de pari"
+  BD -r-> S "Confirmer type de pari"
+
+  user --> S "Entrer résultat parié"
+  user --> S "Définir montant pari en jetons"
+  user --> S "Soumettre ticket de pari"
+  
+  S --> BD "Débiter compte du montant pari"
+  BD -r-> S "Confirmer débit"
+
+  S --> BD "Calculer cote"
+  BD -r-> S "Cote calculée"
+  
+  S -r-> user "Afficher confirmation pari"
+}

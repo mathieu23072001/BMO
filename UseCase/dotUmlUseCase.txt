@@ -1,0 +1,30 @@
+UseCaseDiagram [frame=true framecolor=steelblue label="Paris en ligne"] {
+  actor a as "Bookmaker"
+  actor c as "Parieur"
+  
+  
+  system p as "Paris" {
+  usecase u1 as "S'inscrire
+"
+  usecase u2 as "Gestion des paramètres des paris"
+  usecase u3 as "Consulter compte"
+  usecase u4 as "Placer pari simple"
+  usecase u5 as "Gestion des évènements sportif"
+  usecase u6 as "Placer pari avancé
+"
+  usecase u7 as "recharger jeton"
+  }
+
+
+  actor s as "Système information" [icon=university]
+   
+  
+  c -- u1
+  a -- u2
+  c -- u3
+  c -- u4
+  a -- u5
+  u5 -- s
+  c -- u6
+  c -- u7
+}

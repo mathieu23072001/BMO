@@ -1,0 +1,10 @@
+StateDiagram [frame=true framecolor=steelblue label="Diagramme d'État de la classe Evenement" splines=ortho] {
+  state EnAttente as "En attente" [fillcolor=palegreen]
+  state EnCours as "En cours" [fillcolor=lightskyblue]
+  state Termine as "Terminé" [fillcolor=lightcoral]
+
+  initialState -> EnAttente
+  EnAttente -> EnCours  "Événement débute"
+  EnCours -> Termine  "Événement terminé"
+  Termine -> EnAttente  "Nouvel événement programmé"
+}

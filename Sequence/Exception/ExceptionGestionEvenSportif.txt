@@ -1,0 +1,21 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Gestion des Événements Sportifs (Exception)"] {
+  actor Bookmaker
+  participant ":InterfaceUtilisateur" as Interface
+  participant ":SystèmeParis" as Systeme
+  participant ":SourceDonnées" as SourcesDonnees
+  
+  Bookmaker --> Interface "Accéder à la plateforme de paris en ligne"
+  
+  Bookmaker --> Interface "Sélectionner l'option 'Gestion des événements sportifs'"
+  
+  Interface --> Systeme "Requête de gestion des événements sportifs"
+  
+  Systeme --> SourcesDonnees "Récupérer informations en temps réel sur les événements"
+  
+  fragment alt "Événements indisponibles" {
+    SourcesDonnees --> Systeme "Aucune donnée disponible"
+    Systeme --> Interface "Afficher message d'erreur : 'Aucun événement sportif disponible'"
+  }
+  
+  
+}

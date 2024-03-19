@@ -1,0 +1,12 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Exception placé paris simple"] {
+  actor user
+  lifeline ":SystemeParisEnLigne" as S
+  lifeline ":BaseDeDonnees" as BD
+  
+ user --> S "Choisir événement sportif"
+  
+  S --> BD "Vérifier événement"
+  BD -r-> S "Erreur: événement non disponible"
+
+  S -r-> user "Erreur: événement non disponible, veuillez choisir un autre événement"
+}

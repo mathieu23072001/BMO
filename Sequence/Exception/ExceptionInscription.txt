@@ -1,0 +1,16 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Exception inscription"] {
+  actor  P
+  lifeline ":InterfaceInscription" as II
+  lifeline ":SystemeInscription" as SI
+  lifeline ":BaseDeDonnees" as BD
+  
+  P --> II "Remplir formulaire d'inscription"
+  
+  II --> SI "Transmettre informations d'inscription"
+  
+  SI --> BD "Vérifier disponibilité du nom d'utilisateur"
+  BD -r-> SI "Erreur: nom d'utilisateur déjà pris"
+  
+  SI -r-> II "Erreur: nom d'utilisateur déjà pris"
+  II -r-> P "Erreur: nom d'utilisateur déjà pris, veuillez choisir un autre nom d'utilisateur"
+}

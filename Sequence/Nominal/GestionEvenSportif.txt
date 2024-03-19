@@ -1,0 +1,24 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Gestion des Événements Sportifs"] {
+  actor Bookmaker
+  participant ":InterfaceUtilisateur" as Interface
+  participant ":SystèmeParis" as Systeme
+  participant ":SourceDonnées" as SourcesDonnees
+  
+  Bookmaker --> Interface "Accéder à la plateforme de paris en ligne"
+  
+  Bookmaker --> Interface "Sélectionner l'option 'Gestion des événements sportifs'"
+  
+  Interface --> Systeme "Requête de gestion des événements sportifs"
+  
+  Systeme --> SourcesDonnees "Récupérer informations en temps réel sur les événements"
+  
+  SourcesDonnees --> Systeme "Données en temps réel sur les événements sportifs"
+  
+  Systeme --> Interface "Afficher les événements sportifs disponibles"
+  
+  Bookmaker --> Interface "Sélectionner un événement sportif à gérer"
+  
+  Interface --> Systeme "Requête de gestion d'un événement sportif spécifique"
+  
+  Systeme --> Interface "Afficher les options de gestion pour l'événement sportif sélectionné"
+}

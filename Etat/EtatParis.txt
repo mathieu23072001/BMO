@@ -1,0 +1,14 @@
+StateDiagram [frame=true framecolor=steelblue label="Diagramme d'État de la classe Paris" splines=ortho] {
+  state EnAttente as "En attente" [fillcolor=palegreen]
+  state EnCours as "En cours" [fillcolor=lightskyblue]
+  state Réussi as "Réussi" [fillcolor=lightgoldenrodyellow]
+  state Échoué as "Échoué" [fillcolor=lightcoral]
+
+
+  initialState -> EnAttente
+  EnAttente -> EnCours  "Déclenchement du pari"
+  EnCours -> Réussi "Pari réussi"
+  EnCours -> Échoué "Pari échoué"
+  Échoué -> EnCours "Retentative du pari"
+  Réussi -> EnAttente "Nouveau pari"
+}

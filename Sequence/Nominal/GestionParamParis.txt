@@ -1,0 +1,30 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Gestion des Paramètres de Paris"] {
+  actor bookmaker
+  participant ":InterfaceUtilisateur" as Interface
+  participant ":SystèmeParis" as Systeme
+  participant ":BaseDeDonnées" as BaseDeDonnees
+  
+  bookmaker --> Interface "Accéder à la plateforme de paris en ligne"
+  
+  bookmaker --> Interface "Sélectionner l'option 'Paramètres de paris"
+  
+  Interface --> Systeme " Demande de gestion des paramètres de paris"
+  
+  Systeme --> BaseDeDonnees "Récupérer les paramètres actuels"
+  
+  BaseDeDonnees --> Systeme "Paramètres actuels des paris"
+  
+  Systeme --> Interface " Afficher les paramètres actuels"
+  
+  bookmaker --> Interface " Modifier les paramètres selon ses préférences"
+  
+  Interface --> Systeme "Envoyer les nouveaux paramètres"
+  
+  Systeme --> BaseDeDonnees " Mettre à jour les paramètres"
+  
+  BaseDeDonnees --> Systeme " Confirmation de mise à jour"
+  
+  Systeme --> Interface " Afficher confirmation de mise à jour des paramètres"
+  
+  Interface --> bookmaker " Confirmation de la mise à jour des paramètres"
+}

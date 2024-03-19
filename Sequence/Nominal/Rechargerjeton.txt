@@ -1,0 +1,21 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Recharger Jeton"] {
+  actor Parieur
+  participant ":InterfaceUtilisateur" as Interface
+  participant ":SystèmeParis" as Systeme
+  participant ":Banque" as Banque
+  
+  Parieur --> Interface "Accéder à la plateforme de paris en ligne"
+  
+  Parieur --> Interface "Sélectionner l'option 'Recharger jeton'"
+  
+  Interface --> Systeme "Requête de rechargement de jeton"
+  
+  Systeme --> Banque "Transfert de fonds"
+  
+ fragment alt "Transfert réussi" {
+    Banque --> Systeme "Confirmation de transfert"
+    Systeme --> Interface "Afficher confirmation de rechargement"
+  }
+  
+  
+}
