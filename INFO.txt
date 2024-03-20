@@ -1,1 +1,3 @@
 rendre repo Github : templep/ Girlab Gitlab : @ptemple
+
+Binome: Mathieu Lawson, Maxime Guegan
